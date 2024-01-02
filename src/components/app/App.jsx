@@ -7,7 +7,7 @@ const App = () => {
     <Box>
       <CssBaseline />
       <Home />
-      <Container maxWidth="md"></Container>
+      <Container maxWidth="md">test</Container>
     </Box>
   );
 };
