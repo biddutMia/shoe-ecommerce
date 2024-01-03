@@ -16,26 +16,9 @@ const TopHeader = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" sx={{ flexGrow: "1" }}>
             shoeEcommerce
           </Typography>
-
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              flexGrow: 1,
-              alignItems: "flex-end",
-              margin: "0px 5px",
-            }}
-          >
-            <SearchIcon sx={{ mr: 1, my: 0.5 }} />
-            <TextField
-              id="input-with-sx"
-              variant="standard"
-              placeholder="search product"
-            />
-          </Box>
 
           <Box>
             <Stack direction={"row"} spacing={2.5}>

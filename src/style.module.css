@@ -1,0 +1,17 @@
+.threeDotsIcon {
+  display: none;
+}
+
+.subMenuList {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .threeDotsIcon {
+    display: block;
+  }
+
+  .subMenuList {
+    display: none;
+  }
+}
