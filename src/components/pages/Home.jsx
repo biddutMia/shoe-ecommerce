@@ -17,7 +17,7 @@ const Home = () => {
             width: "100%",
           }}
           alt="The house from the offer."
-          src="public/img/bannerShoe.jpg"
+          src="/img/bannerShoe.jpg"
         />
         <Box>
           <Container maxWidth="md">
