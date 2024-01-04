@@ -34,3 +34,10 @@
     font-size: 25px;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .bannerTextContainer {
+    top: 40px;
+    font-size: 20px;
+  }
+}
