@@ -6,12 +6,31 @@
   display: block;
 }
 
+.bannerTextContainer {
+  position: absolute;
+  top: 150px;
+  font-size: 50px;
+}
+
+@media screen and (max-width: 850px) {
+  .bannerTextContainer {
+    top: 120px;
+    font-size: 25px;
+  }
+}
+
 @media screen and (max-width: 650px) {
   .threeDotsIcon {
+    top: 120px;
     display: block;
   }
 
   .subMenuList {
     display: none;
+  }
+
+  .bannerTextContainer {
+    top: 90px;
+    font-size: 25px;
   }
 }
