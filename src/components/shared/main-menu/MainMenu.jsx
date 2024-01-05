@@ -7,11 +7,11 @@ import { Badge, Stack } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
+import { useStoreState } from "easy-peasy";
 
 const TopHeader = () => {
+  const { cart, wishList } = useStoreState((state) => state);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -22,10 +22,20 @@ const TopHeader = () => {
 
           <Box>
             <Stack direction={"row"} spacing={2.5}>
-              <Badge badgeContent={1} color="secondary">
+              <Badge
+                badgeContent={wishList.data.length ? wishList.data.length : "0"}
+                color="secondary"
+              >
                 <FavoriteIcon />
               </Badge>
-              <Badge badgeContent={4} color="secondary">
+              <Badge
+                badgeContent={
+                  Object.keys(cart.data).length
+                    ? Object.keys(cart.data).length
+                    : "0"
+                }
+                color="secondary"
+              >
                 <ShoppingCartIcon />
               </Badge>
 
