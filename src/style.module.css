@@ -12,6 +12,11 @@
   font-size: 50px;
 }
 
+.subMenuItem {
+  text-decoration: none;
+  color: black;
+}
+
 @media screen and (max-width: 850px) {
   .bannerTextContainer {
     top: 120px;

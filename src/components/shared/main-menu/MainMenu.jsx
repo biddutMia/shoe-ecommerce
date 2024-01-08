@@ -13,7 +13,9 @@ const TopHeader = () => {
   const { cart, wishList } = useStoreState((state) => state);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      sx={{ flexGrow: 1, position: "fixed", top: 0, width: "100%", zIndex: 1 }}
+    >
       <AppBar position="static">
         <Toolbar variant="dense">
           <Typography variant="h6" component="div" sx={{ flexGrow: "1" }}>

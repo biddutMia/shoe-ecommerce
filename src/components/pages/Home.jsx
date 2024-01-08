@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import TopHeader from "../shared/main-menu/MainMenu";
 import SubMenu from "../shared/sub-menu/SubMenu";
 import { bannerTextContainer } from "../../style.module.css";
+import Footer from "../shared/Footer/Footer";
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <TopHeader />
       <SubMenu />
 
-      <Box sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative", top: "98px" }}>
         <Box
           component="img"
           sx={{
@@ -30,6 +31,7 @@ const Home = () => {
           </Container>
         </Box>
       </Box>
+      <Footer />
     </Box>
   );
 };

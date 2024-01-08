@@ -19,7 +19,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import {  threeDotsIcon, subMenuList } from "../../../style.module.css";
+import {
+  threeDotsIcon,
+  subMenuList,
+  subMenuItem,
+} from "../../../style.module.css";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,6 +68,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const CustomLink = (text) => {
+  if (text == "Home") {
+    return "/";
+  }
+  return "/" + text.toLowerCase();
+};
+
 export default function SubMenu() {
   const [state, setState] = React.useState({
     left: false,
@@ -93,7 +105,13 @@ export default function SubMenu() {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon></ListItemIcon>
-                <ListItemText primary={text} />
+                <Button
+                  className={subMenuItem}
+                  component={Link}
+                  to={CustomLink(text)}
+                >
+                  {text}
+                </Button>
               </ListItemButton>
             </ListItem>
           )
@@ -104,8 +122,17 @@ export default function SubMenu() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ background: "#e8eaf6" }}>
-        <Container maxWidth="lg">
+      <AppBar
+        position="static"
+        sx={{
+          background: "#e8eaf6",
+          position: "fixed",
+          width: "100%",
+          top: "49px",
+          zIndex: 1,
+        }}
+      >
+        <Container maxWidth="md">
           <Toolbar variant="dense">
             <Box className={threeDotsIcon}>
               <IconButton
@@ -121,14 +148,29 @@ export default function SubMenu() {
             </Box>
             <Box
               className={subMenuList}
-              sx={{ flexGrow: "1", cursor: "pointer", color: "black" }}
+              sx={{
+                flexGrow: "1",
+                cursor: "pointer",
+                color: "black",
+                zIndex: 1,
+              }}
             >
               <Stack direction={"row"} spacing={2}>
-                <Box>Home</Box>
-                <Box>Shop</Box>
-                <Box>Blog</Box>
-                <Box>Contact us</Box>
-                <Box>About us</Box>
+                <Box className={subMenuItem} component={Link} to="/">
+                  Home
+                </Box>
+                <Box className={subMenuItem} component={Link} to="/shop">
+                  Shop
+                </Box>
+                <Box className={subMenuItem} component={Link}>
+                  Blog
+                </Box>
+                <Box className={subMenuItem} component={Link}>
+                  Contact us
+                </Box>
+                <Box className={subMenuItem} component={Link}>
+                  About us
+                </Box>
               </Stack>
             </Box>
 

@@ -1,4 +1,5 @@
 import { action } from "easy-peasy";
+import shopListData from "../data/data";
 
 const cart = {
   data: {},
@@ -43,4 +44,8 @@ const wishList = {
   removeAllItem: action((state) => (state = [])),
 };
 
-export { cart, wishList };
+const shop = {
+  shopItems: shopListData,
+};
+
+export { cart, wishList, shop };
