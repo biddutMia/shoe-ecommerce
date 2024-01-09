@@ -30,15 +30,12 @@ const cart = {
 const wishList = {
   data: [],
 
-  addToCart: action((state, payload) => {
-    if (!state.data[payload]) {
+  toggleWishList: action((state, payload) => {
+    if (!state.data.includes(payload)) {
       state.data.push(payload);
+    } else {
+      state.data = state.data.filter((item) => item !== payload);
     }
-  }),
-
-  removeOneItem: action((state, payload) => {
-    const newWishList = state.filter((item) => item !== payload);
-    state = newWishList;
   }),
 
   removeAllItem: action((state) => (state = [])),
