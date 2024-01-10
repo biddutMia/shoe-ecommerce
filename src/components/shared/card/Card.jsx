@@ -71,6 +71,7 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
                 width: "100%",
                 height: "100%",
                 borderRadius: "5px",
+                objectFit: "cover",
               }}
             />
           </Box>

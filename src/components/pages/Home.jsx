@@ -9,26 +9,27 @@ const Home = () => {
     <Box>
       <TopHeader />
       <SubMenu />
-
-      <Box sx={{ position: "relative", top: "98px" }}>
-        <Box
-          component="img"
-          sx={{
-            height: "auto",
-            width: "100%",
-          }}
-          alt="The house from the offer."
-          src="/img/bannerShoe.jpg"
-        />
-        <Box>
-          <Container maxWidth="md">
-            <Box className={bannerTextContainer}>
-              <Box sx={{ color: "red" }}>25% discount</Box>
-              <Button variant="contained" sx={{ position: "absolute" }}>
-                shop now
-              </Button>
-            </Box>
-          </Container>
+      <Box>
+        <Box sx={{ position: "relative", marginTop: "98px" }}>
+          <Box
+            component="img"
+            sx={{
+              height: "auto",
+              width: "100%",
+            }}
+            alt="The house from the offer."
+            src="/img/bannerShoe.jpg"
+          />
+          <Box>
+            <Container maxWidth="md">
+              <Box className={bannerTextContainer}>
+                <Box sx={{ color: "red" }}>25% discount</Box>
+                <Button variant="contained" sx={{ position: "absolute" }}>
+                  shop now
+                </Button>
+              </Box>
+            </Container>
+          </Box>
         </Box>
       </Box>
       <Footer />

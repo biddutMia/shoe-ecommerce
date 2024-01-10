@@ -30,7 +30,7 @@ const Shop = () => {
           </Box>
         </Stack>
         <Box sx={{ marginTop: "20px" }}>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
             {shop.shopItems.length !== 0 &&
               shop.shopItems.map((item) => {
                 const { id, description, imgURL, imgAlt, name, price, type } = item;
