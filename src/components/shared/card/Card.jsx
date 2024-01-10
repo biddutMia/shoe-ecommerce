@@ -5,10 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, CardActionArea, CardActions, Stack } from "@mui/material";
 import { useStoreActions, useStoreState } from "easy-peasy";
-import {
-  cardImgAndTextContainer,
-  cardImgContainer,
-} from "../../../style.module.css";
+import { cardImgAndTextContainer, testImg } from "../../../style.module.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
@@ -58,26 +55,26 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
       }}
     >
       <Box className={cardImgAndTextContainer}>
-        <Box sx={{ overflow: "hidden" }}>
-          <Box
-            sx={{ width: "100%", height: "150px" }}
-            className={cardImgContainer}
-          >
-            {" "}
-            <img
-              src={imgUrl}
-              alt={imgAlt}
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "5px",
-                objectFit: "cover",
-              }}
-            />
-          </Box>
+        <Box sx={{ width: "100%", overflow: "hidden", aspectRatio: "1/1" }}>
+          {" "}
+          <img
+            className={testImg}
+            src={imgUrl}
+            alt={imgAlt}
+            style={{
+              width: "100%",
+              height: "100%",
+              // height: "120px",
+              // height: "auto",
+              borderRadius: "5px",
+              objectFit: "cover",
+            }}
+          />
         </Box>
+
         <Box sx={{ marginLeft: "5px" }}>
           <Typography variant="h5"> {name}</Typography>
+          <Typography variant="body1"> TK. {price}</Typography>
           <Typography>{description}</Typography>
         </Box>
       </Box>
