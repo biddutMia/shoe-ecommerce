@@ -17,11 +17,11 @@
   color: black;
 }
 
-.testImg {
+.cardImg {
   transition: all 0.7s;
 }
 
-.cardImgAndTextContainer:hover .testImg {
+.cardImgAndTextContainer:hover .cardImg {
   transform: scale(1.1);
 }
 
