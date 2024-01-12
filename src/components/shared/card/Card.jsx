@@ -17,10 +17,9 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
     <Box
       className="card"
       sx={{
-        boxShadow: "5px 5px 20px grey",
-        background: "#e0e0e0",
-        margin: "5px",
+        border: "1px solid #ABB2B9",
         borderRadius: "5px",
+        margin: "5px 10px 5px 0px",
       }}
     >
       <Box className={cardImgAndTextContainer}>
@@ -33,8 +32,6 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
             style={{
               width: "100%",
               height: "100%",
-
-              borderRadius: "5px",
               objectFit: "cover",
             }}
           />

@@ -17,7 +17,7 @@ const Shop = () => {
       <TopHeader />
       <SubMenu />
       <Container maxWidth="md" sx={{ marginTop: "120px" }}>
-        <Stack direction={"row"}>
+        {/* <Stack direction={"row"}>
           <Box sx={{ flexGrow: "1" }}></Box>
           <Box>
             <Autocomplete
@@ -28,15 +28,16 @@ const Shop = () => {
               renderInput={(params) => <TextField {...params} label="FILTER" />}
             />
           </Box>
-        </Stack>
+        </Stack> */}
         <Box sx={{ marginTop: "20px" }}>
-          <Grid container spacing={1}>
+          <Grid container>
             {shop.shopItems.length !== 0 &&
               shop.shopItems.map((item) => {
-                const { id, description, imgURL, imgAlt, name, price, type } = item;
+                const { id, description, imgURL, imgAlt, name, price, type } =
+                  item;
 
                 return (
-                  <Grid item md={4} key={id} sm={6} xs={12} xl={3}>
+                  <Grid item xs={12} sm={6} md={4} key={id}>
                     <ProductCard
                       imgUrl={imgURL}
                       id={id}

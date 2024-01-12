@@ -159,7 +159,11 @@ export default function SubMenu() {
                 <Box className={subMenuItem} component={Link} to="/">
                   Home
                 </Box>
-                <Box className={subMenuItem} component={Link} to="/shop">
+                <Box
+                  className={subMenuItem}
+                  component={Link}
+                  to="/shop"
+                >
                   Shop
                 </Box>
                 <Box className={subMenuItem} component={Link} to="/blog">
