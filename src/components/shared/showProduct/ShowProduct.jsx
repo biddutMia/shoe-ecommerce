@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useRef } from "react";
 
-const ShowProduct = ({ title, products, slideItems }) => {
+const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
   const slide = useRef(null);
 
   useEffect(() => {
@@ -122,6 +122,7 @@ const ShowProduct = ({ title, products, slideItems }) => {
                         description={description}
                         price={price}
                         imgAlt={imgAlt}
+                        isCart={isCart}
                       />
                     </Grid>
                   );
@@ -136,10 +137,12 @@ const ShowProduct = ({ title, products, slideItems }) => {
               margin: "10px 0px",
             }}
           >
-            <Button variant={"contained"} component={Link} to="/shop">
-              {" "}
-              show more
-            </Button>
+            {!show && (
+              <Button variant={"contained"} component={Link} to="/shop">
+                {" "}
+                show more
+              </Button>
+            )}
           </Box>
         </Box>
       )}
@@ -162,6 +165,7 @@ const ShowProduct = ({ title, products, slideItems }) => {
                         description={description}
                         price={price}
                         imgAlt={imgAlt}
+                        isCart={isCart}
                       />
                     </Box>
                   );

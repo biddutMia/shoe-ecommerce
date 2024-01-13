@@ -100,22 +100,22 @@ export default function SubMenu() {
     >
       <Divider />
       <List>
-        {["Home", "Shop", "Blog", "Contact us", "About us"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon></ListItemIcon>
-                <Button
-                  className={subMenuItem}
-                  component={Link}
-                  to={CustomLink(text)}
-                >
-                  {text}
-                </Button>
-              </ListItemButton>
-            </ListItem>
-          )
-        )}
+        {[
+          { title: "Home", url: "/" },
+          { title: "Shop", url: "/shop" },
+          { title: "Blog", url: "/blog" },
+          { title: "Contact us", url: "/contact" },
+          { title: "About us", url: "/about" },
+        ].map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton>
+              <ListItemIcon></ListItemIcon>
+              <Button className={subMenuItem} component={Link} to={item.url}>
+                {item.title}
+              </Button>
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
@@ -156,25 +156,22 @@ export default function SubMenu() {
               }}
             >
               <Stack direction={"row"} spacing={2}>
-                <Box className={subMenuItem} component={Link} to="/">
-                  Home
-                </Box>
-                <Box
-                  className={subMenuItem}
-                  component={Link}
-                  to="/shop"
-                >
-                  Shop
-                </Box>
-                <Box className={subMenuItem} component={Link} to="/blog">
-                  Blog
-                </Box>
-                <Box className={subMenuItem} component={Link}>
-                  Contact us
-                </Box>
-                <Box className={subMenuItem} component={Link}>
-                  About us
-                </Box>
+                {[
+                  { title: "Home", url: "/" },
+                  { title: "Shop", url: "/shop" },
+                  { title: "Blog", url: "/blog" },
+                  { title: "Contact us", url: "/contact" },
+                  { title: "About us", url: "/about" },
+                ].map((item, index) => (
+                  <Box
+                    key={index}
+                    className={subMenuItem}
+                    component={Link}
+                    to={item.url}
+                  >
+                    {item.title}
+                  </Box>
+                ))}
               </Stack>
             </Box>
 

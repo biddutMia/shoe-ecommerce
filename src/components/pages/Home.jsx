@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 
 import ShowProduct from "../shared/showProduct/ShowProduct";
+import Subscribe from "../shared/subscribe/Subscribe";
 
 const Home = () => {
   const { shop } = useStoreState((state) => state);
@@ -42,7 +43,10 @@ const Home = () => {
               </Box>
             </Container>
             <Container maxWidth="md" sx={{ marginTop: "40px" }}>
-              <ShowProduct title="Shop Product" products={shopProduct} />
+              <Box sx={{ marginTop: "70px" }}>
+                {" "}
+                <ShowProduct title="Shop Product" products={shopProduct} />
+              </Box>
 
               <Box sx={{ margin: "100px 0px 20px 0px" }}>
                 <ShowProduct
@@ -50,6 +54,29 @@ const Home = () => {
                   slideItems={true}
                   products={shopProduct}
                 />
+              </Box>
+              <Box
+                sx={{
+                  margin: "100px 0px 80px 0px",
+                }}
+              >
+                <ShowProduct
+                  title="Upcoming product"
+                  slideItems={true}
+                  products={shopProduct}
+                  isCart={false}
+                />
+              </Box>
+
+              <Box
+                sx={{
+                  background: "#F4F6F6 ",
+                  padding: "50px 0px",
+                  borderRadius: "5px",
+                  marginBottom: "20px",
+                }}
+              >
+                <Subscribe />
               </Box>
             </Container>
           </Box>

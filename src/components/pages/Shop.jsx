@@ -1,4 +1,11 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Grid,
+  Pagination,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useStoreState } from "easy-peasy";
 import TopHeader from "../shared/main-menu/MainMenu";
 import SubMenu from "../shared/sub-menu/SubMenu";
@@ -7,49 +14,69 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import ProductCard from "../shared/card/Card";
+import ShowProduct from "../shared/showProduct/ShowProduct";
+import ProducPagination from "../shared/pagination/Pagination";
+import { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 
-const top100Films = ["man", "woman", "kid"];
+const categories = ["man", "woman", "kid"];
 
 const Shop = () => {
+  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/shop?page=${page}`);
+  }, [page]);
+
+  const pageNo = searchParams.get("page")
+    ? Number(searchParams.get("page"))
+    : 0;
+  const startInd = pageNo ? (pageNo - 1) * 9 : 0;
+  const endInd = startInd + 9;
+
   const { shop } = useStoreState((state) => state);
+  const shopItems = shop.shopItems.slice(startInd, endInd);
+  const numberOfPagination = Math.ceil(shop.shopItems.length / 9);
+
   return (
     <Box>
       <TopHeader />
       <SubMenu />
-      <Container maxWidth="md" sx={{ marginTop: "120px" }}>
-        {/* <Stack direction={"row"}>
+      <Container maxWidth="md" sx={{ marginTop: "130px" }}>
+        <Stack direction={"row"}>
           <Box sx={{ flexGrow: "1" }}></Box>
           <Box>
             <Autocomplete
               disablePortal
               id="combo-box-demo"
-              options={top100Films}
+              options={categories}
               sx={{ width: 200 }}
+              size="small"
               renderInput={(params) => <TextField {...params} label="FILTER" />}
             />
           </Box>
-        </Stack> */}
-        <Box sx={{ marginTop: "20px" }}>
-          <Grid container>
-            {shop.shopItems.length !== 0 &&
-              shop.shopItems.map((item) => {
-                const { id, description, imgURL, imgAlt, name, price, type } =
-                  item;
+        </Stack>
 
-                return (
-                  <Grid item xs={12} sm={6} md={4} key={id}>
-                    <ProductCard
-                      imgUrl={imgURL}
-                      id={id}
-                      name={name}
-                      description={description}
-                      price={price}
-                      imgAlt={imgAlt}
-                    />
-                  </Grid>
-                );
-              })}
-          </Grid>
+        <Box sx={{ marginTop: "20px" }}>
+          <ProducPagination
+            setPage={setPage} 
+            page={page}
+            numberOfPagination={numberOfPagination}
+          />
+        </Box>
+
+        <Box sx={{ marginTop: "10px" }}>
+          <ShowProduct products={shopItems} show={true} />
+        </Box>
+
+        <Box sx={{ marginBottom: "20px" }}>
+          <ProducPagination
+            setPage={setPage}
+            page={page}
+            numberOfPagination={numberOfPagination}
+          />
         </Box>
       </Container>
       <Footer />

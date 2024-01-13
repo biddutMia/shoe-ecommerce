@@ -9,7 +9,15 @@ import { cardImgAndTextContainer, cardImg } from "../../../style.module.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
+const ProductCard = ({
+  imgUrl,
+  imgAlt,
+  name,
+  description,
+  price,
+  id,
+  isCart = true,
+}) => {
   const actions = useStoreActions((action) => action);
   const wishList = useStoreState((state) => state);
 
@@ -20,6 +28,7 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
         border: "1px solid #ABB2B9",
         borderRadius: "5px",
         margin: "5px 10px 5px 0px",
+        background: "#F2F3F4",
       }}
     >
       <Box className={cardImgAndTextContainer}>
@@ -45,13 +54,15 @@ const ProductCard = ({ imgUrl, imgAlt, name, description, price, id }) => {
       </Box>
       <Box>
         <Stack direction={"row"} spacing={0.4} sx={{ margin: "5px" }}>
-          <Button
-            sx={{ flexGrow: "1" }}
-            variant="contained"
-            onClick={() => actions.cart.addToCart(id)}
-          >
-            ADD TO CART
-          </Button>
+          {isCart && (
+            <Button
+              sx={{ flexGrow: "1" }}
+              variant="contained"
+              onClick={() => actions.cart.addToCart(id)}
+            >
+              ADD TO CART
+            </Button>
+          )}
           <Button
             variant="contained"
             onClick={() => actions.wishList.toggleWishList(id)}
