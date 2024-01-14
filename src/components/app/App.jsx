@@ -1,7 +1,8 @@
 import { Box, Container, CssBaseline } from "@mui/material";
 
-import Home from "../pages/Home/Home";
 import Shop from "../pages/shop/Shop";
+import Home from "../pages/home/Home";
+
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
