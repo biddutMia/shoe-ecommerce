@@ -1,0 +1,8 @@
+.css-1xnbq41-MuiAutocomplete-root {
+  width: 150px;
+}
+@media screen and (max-width: 400px) {
+  .css-1xnbq41-MuiAutocomplete-root {
+    width: 100px;
+  }
+}

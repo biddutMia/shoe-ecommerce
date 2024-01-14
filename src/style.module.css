@@ -25,8 +25,11 @@
   transform: scale(1.1);
 }
 
-.css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator{
-  
+.searchAndFilter {
+  color: black;
+}
+
+.css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator {
 }
 
 @media screen and (max-width: 850px) {
