@@ -1,7 +1,7 @@
 import { Box, Pagination, Stack, Typography } from "@mui/material";
 import React from "react";
 
-const ProducPagination = ({ setPage, page, numberOfPagination }) => {
+const ProductPagination = ({ setPage, page, numberOfPagination }) => {
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -19,4 +19,4 @@ const ProducPagination = ({ setPage, page, numberOfPagination }) => {
   );
 };
 
-export default ProducPagination;
+export default ProductPagination;

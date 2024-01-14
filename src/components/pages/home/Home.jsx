@@ -1,13 +1,13 @@
 import { Box, Button, Container } from "@mui/material";
-import TopHeader from "../shared/main-menu/MainMenu";
-import SubMenu from "../shared/sub-menu/SubMenu";
-import { bannerTextContainer } from "../../style.module.css";
-import Footer from "../shared/Footer/Footer";
+import TopHeader from "../../shared/main-menu/MainMenu";
+import SubMenu from "../../shared/sub-menu/SubMenu";
+import { bannerTextContainer } from "../../../style.module.css";
+import Footer from "../../shared/Footer/Footer";
 import { Link } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
 
-import ShowProduct from "../shared/showProduct/ShowProduct";
-import Subscribe from "../shared/subscribe/Subscribe";
+import ShowProduct from "../../shared/showProduct/ShowProduct";
+import Subscribe from "../../shared/subscribe/Subscribe";
 
 const Home = () => {
   const { shop } = useStoreState((state) => state);

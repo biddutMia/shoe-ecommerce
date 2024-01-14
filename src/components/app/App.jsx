@@ -1,8 +1,8 @@
 import { Box, Container, CssBaseline } from "@mui/material";
-import Home from "../pages/Home";
-import Shop from "../pages/Shop";
+
+import Home from "../pages/Home/Home";
+import Shop from "../pages/shop/Shop";
 import { Route, Routes } from "react-router-dom";
-import Blog from "../pages/Blog/Blog";
 
 const App = () => {
   return (
@@ -11,7 +11,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/Blog" element={<Blog />} />
       </Routes>
     </Box>
   );
