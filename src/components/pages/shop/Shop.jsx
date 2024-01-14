@@ -60,14 +60,25 @@ const Shop = () => {
     filterShopItems.length > 0 ? filterShopItems : shop.shopItems;
 
   filterShopItems = sortProduct(filterShopItems, sortText);
-  console.log("filterText", filterShopItems);
 
   const shopItems = filterShopItems.slice(startInd, endInd);
   const numberOfPagination = Math.ceil(filterShopItems.length / 9);
 
   useEffect(() => {
-    navigate(`/shop?page=${page}&sort=${sort}&filter=${filter}`);
+    setPage(pageNo);
+    setFilter(filterText);
+    setSort(sortText);
+  }, []);
+
+  useEffect(() => {
+    navigate(
+      `/shop?page=${page}&sort=${sort ? sort : "default"}&filter=${
+        filter ? filter : "all"
+      }`
+    );
   }, [page, filter, sort]);
+
+  
 
   return (
     <Box>
@@ -81,6 +92,7 @@ const Shop = () => {
               options={sortOptions}
               getData={setSort}
               title="sort"
+              defaultData={sortText}
             />
           </Box>
 
@@ -89,6 +101,7 @@ const Shop = () => {
               options={filterOptions}
               getData={setFilter}
               title="filter"
+              defaultData={filterText}
             />
           </Box>
         </Stack>
