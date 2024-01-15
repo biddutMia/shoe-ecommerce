@@ -8,6 +8,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonPinRoundedIcon from "@mui/icons-material/PersonPinRounded";
 import { useStoreState } from "easy-peasy";
+import { Link } from "react-router-dom";
 
 const TopHeader = () => {
   const { cart, wishList } = useStoreState((state) => state);
@@ -38,7 +39,9 @@ const TopHeader = () => {
                 }
                 color="secondary"
               >
-                <ShoppingCartIcon />
+                <Link to="/cart">
+                  <ShoppingCartIcon />
+                </Link>
               </Badge>
 
               <PersonPinRoundedIcon />
