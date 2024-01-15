@@ -1,4 +1,4 @@
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import TopHeader from "../../shared/main-menu/MainMenu";
 import SubMenu from "../../shared/sub-menu/SubMenu";
 import { useStoreState } from "easy-peasy";
@@ -13,6 +13,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Footer from "../../shared/Footer/Footer";
+import { cartTitle } from "../../../style.module.css";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -34,28 +35,39 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
 const CartAndWishLists = (pageTitle) => {
   const { shop } = useStoreState((state) => state);
   const { cart } = useStoreState((state) => state);
   const cartProductArr = Object.keys(cart.data);
 
-  const cartData = shop.shopItems.reduce((prev, curr, ind) => {
-    if (curr.id == cartProductArr[ind]) {
-      const { id, name, price } = curr;
+  const cartData = shop.shopItems.reduce((prev, curr) => {
+    cartProductArr.forEach((item) => {
+      if (item == curr.id) {
+        const { id, name, price } = curr;
 
-      const cartDataItem = {
-        id,
-        name,
-        price,
-        item: cart.data[id].item,
-      };
+        const cartDataItem = {
+          id,
+          name,
+          price,
+          item: cart.data[id].item,
+        };
 
-      prev.push(cartDataItem);
-    }
+        prev.push(cartDataItem);
+      }
+    });
+
+    // if (curr.id == cartProductArr[ind]) {
+    //   const { id, name, price } = curr;
+
+    //   const cartDataItem = {
+    //     id,
+    //     name,
+    //     price,
+    //     item: cart.data[id].item,
+    //   };
+
+    //   prev.push(cartDataItem);
+    // }
     return prev;
   }, []);
 
@@ -71,13 +83,12 @@ const CartAndWishLists = (pageTitle) => {
       <Container maxWidth="md">
         <Box sx={{ marginTop: "120px" }}>
           <Box
+            className={cartTitle}
             sx={{
-              width: "80%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               borderRadius: "5px",
-              fontSize: "3vw",
               aspectRatio: "1/0.2",
               background: "#EAECEE ",
               margin: "0 auto",
@@ -131,13 +142,16 @@ const CartAndWishLists = (pageTitle) => {
               <Box
                 sx={{
                   background: "#EAECEE ",
-                  width: "30%",
+                  width: "250px",
                   padding: "10px",
                   borderRadius: "5px",
                 }}
               >
                 <Stack spacing={1}>
-                  <Box>sub total: Tk. {subTotalCalc}</Box>
+                  <Typography variant="body1">
+                    sub total: Tk. {subTotalCalc}
+                  </Typography>
+
                   <Button variant="contained" size="small">
                     checkout
                   </Button>

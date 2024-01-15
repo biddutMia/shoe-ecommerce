@@ -22,8 +22,9 @@ const Home = () => {
           <Box
             component="img"
             sx={{
-              height: "auto",
               width: "100%",
+              aspectRatio: "2/0.9",
+              objectFit: 'cover'
             }}
             alt="The house from the offer."
             src="/img/bannerShoe.jpg"

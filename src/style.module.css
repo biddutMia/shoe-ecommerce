@@ -8,7 +8,7 @@
 
 .bannerTextContainer {
   position: absolute;
-  top: 150px;
+  top: 200px;
   font-size: 50px;
 }
 
@@ -29,13 +29,14 @@
   color: black;
 }
 
-.css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator {
+.cartTitle {
+  font-size: 25px;
 }
 
 @media screen and (max-width: 850px) {
   .bannerTextContainer {
-    top: 120px;
-    font-size: 25px;
+    top: 150px;
+    font-size: 40px;
   }
 }
 
@@ -50,14 +51,22 @@
   }
 
   .bannerTextContainer {
-    top: 90px;
+    top: 110px;
     font-size: 25px;
+  }
+
+  .cartTitle {
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 540px) {
   .bannerTextContainer {
-    top: 40px;
+    top: 70px;
     font-size: 20px;
+  }
+
+  .cartTitle {
+    font-size: 16px;
   }
 }
