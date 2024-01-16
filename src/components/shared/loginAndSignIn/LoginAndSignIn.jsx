@@ -4,6 +4,7 @@ import TopHeader from "../main-menu/MainMenu";
 import SubMenu from "../sub-menu/SubMenu";
 import InputField from "../inputField/InputField";
 import { useState } from "react";
+import { loginAndSignin, loginAndSigninBtn } from "../../../style.module.css";
 
 const LoginAndSignIn = ({ handleSubmit, state, setState, isLogin }) => {
   const handleChange = (event) => {
@@ -20,13 +21,13 @@ const LoginAndSignIn = ({ handleSubmit, state, setState, isLogin }) => {
   };
 
   return (
-    <div>
+    <Box >
       <TopHeader />
       <SubMenu />
       <Container maxWidth={"md"} sx={{ marginTop: "120px" }}>
         <Box
+          className={loginAndSignin}
           sx={{
-            width: isLogin ? "40%" : "60%",
             margin: "20px auto",
             background: "#F4F6F6",
             padding: "30px",
@@ -55,7 +56,8 @@ const LoginAndSignIn = ({ handleSubmit, state, setState, isLogin }) => {
             <Button
               variant="contained"
               type="submit"
-              sx={{ marginTop: "30px", width: "200px" }}
+              sx={{ marginTop: "30px" }}
+              className={loginAndSigninBtn}
             >
               submit
             </Button>
@@ -64,7 +66,7 @@ const LoginAndSignIn = ({ handleSubmit, state, setState, isLogin }) => {
       </Container>
 
       <Footer />
-    </div>
+    </Box>
   );
 };
 

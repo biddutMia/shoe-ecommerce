@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import { Container, Box } from "@mui/system";
 
 const FooterItem = ({ item }) => {
@@ -17,44 +17,60 @@ const Footer = () => {
     <Box sx={{ marginTop: "10px" }}>
       <Box sx={{ background: "#37474f", color: "white" }}>
         <Container maxWidth="md">
-          <Stack
+          <Grid container>
+            <Grid item xs={6} sm={3}>
+              <Box>
+                <Typography variant="h6">Categories</Typography>
+                {["Man", "Woman", "Kid"].map((item, ind) => (
+                  <FooterItem key={ind} item={item} />
+                ))}
+              </Box>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Box>
+                <Typography variant="h6">Services</Typography>
+                {["Support", "Help center", "FAQ", "Product return"].map(
+                  (item, ind) => (
+                    <FooterItem key={ind} item={item} />
+                  )
+                )}
+              </Box>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Box>
+                <Typography variant="h6">Social Links</Typography>
+
+                {["Facebook", "Twitter", "WhatsApp", "Telegram"].map(
+                  (item, ind) => (
+                    <FooterItem key={ind} item={item} />
+                  )
+                )}
+              </Box>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Box>
+                <Typography variant="h6">Pages</Typography>
+
+                {["Home", "Shop", "Blog", "Contact us", "About us"].map(
+                  (item, ind) => (
+                    <FooterItem key={ind} item={item} />
+                  )
+                )}
+              </Box>
+            </Grid>
+          </Grid>
+
+          {/* <Stack
             direction={"row"}
+            spacing={3}
             justifyContent={"space-between"}
-            sx={{ padding: "10px 0px", flexWrap: "wrap" }}
+            sx={{ padding: "10px 0px" }}
           >
-            <Box>
-              <Typography variant="h6">Categories</Typography>
-              {["Man", "Woman", "Kid"].map((item, ind) => (
-                <FooterItem key={ind} item={item} />
-              ))}
-            </Box>
-            <Box>
-              <Typography variant="h6">Services</Typography>
-              {["Support", "Help center", "FAQ", "Product return"].map(
-                (item, ind) => (
-                  <FooterItem key={ind} item={item} />
-                )
-              )}
-            </Box>
-            <Box>
-              <Typography variant="h6">Social Links</Typography>
-
-              {["Facebook", "Twitter", "WhatsApp", "Telegram"].map(
-                (item, ind) => (
-                  <FooterItem key={ind} item={item} />
-                )
-              )}
-            </Box>
-            <Box>
-              <Typography variant="h6">Pages</Typography>
-
-              {["Home", "Shop", "Blog", "Contact us", "About us"].map(
-                (item, ind) => (
-                  <FooterItem key={ind} item={item} />
-                )
-              )}
-            </Box>
-          </Stack>
+           
+          
+           
+           
+          </Stack> */}
         </Container>
       </Box>
 

@@ -43,8 +43,17 @@ const wishList = {
   removeAllItem: action((state) => (state = [])),
 };
 
+const subscribe = {
+  subscribers: [],
+  addToSubscriber: action((state, payload) => {
+    if (!state.subscribers.includes(payload)) {
+      state.subscribers.push(payload);
+    }
+  }),
+};
+
 const shop = {
   shopItems: shopListData,
 };
 
-export { cart, wishList, shop };
+export { cart, wishList, shop, subscribe };

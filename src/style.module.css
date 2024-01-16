@@ -60,6 +60,14 @@
   }
 }
 
+.loginAndSignin {
+  width: 60%;
+}
+
+.loginAndSigninBtn {
+  width: 200px;
+}
+
 @media screen and (max-width: 540px) {
   .bannerTextContainer {
     top: 70px;
@@ -68,5 +76,12 @@
 
   .cartTitle {
     font-size: 16px;
+  }
+  .loginAndSignin {
+    width: 90%;
+  }
+
+  .loginAndSigninBtn {
+    width: 100px;
   }
 }

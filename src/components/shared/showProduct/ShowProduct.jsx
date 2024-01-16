@@ -56,7 +56,7 @@ const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
   };
 
   return (
-    <Box sx={{}}>
+    <Box sx={{ overflow: "hidden" }}>
       {title || slideItems ? (
         <Box>
           {title && (
