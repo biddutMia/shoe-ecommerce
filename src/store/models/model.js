@@ -9,7 +9,9 @@ const cart = {
       state.data[payload] = {
         item: 1,
       };
+      return;
     }
+    alert("This item already added in cart");
   }),
 
   removeOneItem: action((state, payload) => {

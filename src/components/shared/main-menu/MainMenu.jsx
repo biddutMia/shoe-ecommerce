@@ -29,7 +29,9 @@ const TopHeader = () => {
                 badgeContent={wishList.data.length ? wishList.data.length : "0"}
                 color="secondary"
               >
-                <FavoriteIcon />
+                <Link to="/wishList">
+                  <FavoriteIcon />
+                </Link>
               </Badge>
               <Badge
                 badgeContent={
