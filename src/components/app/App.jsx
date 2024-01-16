@@ -1,11 +1,11 @@
 import { Box, Container, CssBaseline } from "@mui/material";
-
+import { Route, Routes } from "react-router-dom";
 import Shop from "../pages/shop/Shop";
 import Home from "../pages/home/Home";
 import Cart from "../pages/cart/Cart";
-
-import { Route, Routes } from "react-router-dom";
 import WishList from "../pages/wishList/WishLish";
+import Login from "../pages/login/Login";
+import SignIn from "../pages/signin/SignIn";
 
 const App = () => {
   return (
@@ -16,6 +16,8 @@ const App = () => {
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishList" element={<WishList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Box>
   );
