@@ -1,50 +1,77 @@
 import { useState } from "react";
-import LoginAndSignIn from "../../shared/loginAndSignIn/LoginAndSignIn";
+import Form from "../../shared/form/Form";
+import { Box, Container } from "@mui/material";
+import TopHeader from "../../shared/main-menu/MainMenu";
+import SubMenu from "../../shared/sub-menu/SubMenu";
+import Footer from "../../shared/Footer/Footer";
 
 const formData = {
   firstName: {
     placeholder: "first name",
-    value: "",
     type: "text",
+    validate: {
+      required: "this field is required",
+    },
   },
   lastName: {
     placeholder: "second name",
-    value: "",
     type: "text",
+    validate: {
+      required: "this field is required",
+    },
   },
   email: {
     placeholder: "example@gmail.com",
-    value: "",
     type: "email",
+    validate: {
+      required: "this field is required",
+    },
   },
   password: {
     placeholder: "password",
-    value: "",
     type: "password",
+    validate: {
+      required: "this field is required",
+      minLength: {
+        value: 8,
+        message: "password must be at least 8 character",
+      },
+    },
   },
   mobile: {
     placeholder: "mobile no",
-    value: "",
     type: "number",
+    validate: {
+      required: "this field is required",
+    },
   },
 };
 
 const SingIn = () => {
   const [state, setState] = useState(JSON.parse(JSON.stringify(formData)));
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("formData", state);
-    setState(JSON.parse(JSON.stringify(formData)));
+  const handleSubmit = (data, e) => {
+    e.preventDefault();
+    console.log("data", data);
+    // setState(JSON.parse(JSON.stringify(formData)));
   };
 
   return (
-    <LoginAndSignIn
-      formData={formData}
-      handleSubmit={handleSubmit}
-      state={state}
-      setState={setState}
-    />
+    <Box>
+      <TopHeader />
+      <SubMenu />
+      <Container maxWidth={"md"} sx={{ marginTop: "120px" }}>
+        <Form
+          handleSubmit={handleSubmit}
+          defaultValue={state}
+          state={state}
+          setState={setState}
+          btnTitle={"sign in"}
+        />
+      </Container>
+
+      <Footer />
+    </Box>
   );
 };
 export default SingIn;

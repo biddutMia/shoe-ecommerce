@@ -29,7 +29,7 @@ const TopHeader = () => {
                 badgeContent={wishList.data.length ? wishList.data.length : "0"}
                 color="secondary"
               >
-                <Link to="/wishList">
+                <Link to="/wishList" style={{ color: "white" }}>
                   <FavoriteIcon />
                 </Link>
               </Badge>
@@ -41,7 +41,7 @@ const TopHeader = () => {
                 }
                 color="secondary"
               >
-                <Link to="/cart">
+                <Link to="/cart" style={{ color: "white" }}>
                   <ShoppingCartIcon />
                 </Link>
               </Badge>

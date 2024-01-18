@@ -182,7 +182,7 @@ const CartAndWishLists = ({ title, isCart, products, addToCart }) => {
                     <Typography variant="body1">
                       sub total: Tk. {subTotalCalc}
                     </Typography>
-                    <Link to="/signIn">
+                    <Link to="/log-in">
                       <Button variant="contained" size="small">
                         checkout
                       </Button>

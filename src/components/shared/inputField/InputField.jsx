@@ -1,15 +1,14 @@
 import { TextField } from "@mui/material";
+import React from "react";
 
-const InputField = ({ name, placeholder, value, type, handleChange }) => {
-  return (
-    <TextField
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      size="small"
-      type={type}
-      onChange={handleChange}
-    />
-  );
-};
+const InputField = React.forwardRef(({ placeholder, field, type }, ref) => (
+  <TextField
+    {...field}
+    type={type}
+    ref={ref}
+    placeholder={placeholder}
+    size="small"
+  />
+));
+
 export default InputField;
