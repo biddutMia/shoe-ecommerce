@@ -1,5 +1,6 @@
 import { action } from "easy-peasy";
 import shopListData from "../data/data";
+import { v4 as generateId } from "uuid";
 
 const cart = {
   data: {},
@@ -52,8 +53,19 @@ const subscribe = {
   }),
 };
 
+const users = {
+  data: [],
+
+  addUser: action((state, payload) => {
+    state.data.push({
+      id: generateId(),
+      ...payload,
+    });
+  }),
+};
+
 const shop = {
   shopItems: shopListData,
 };
 
-export { cart, wishList, shop, subscribe };
+export { cart, wishList, shop, subscribe, users };

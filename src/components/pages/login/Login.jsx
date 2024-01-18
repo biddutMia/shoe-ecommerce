@@ -6,6 +6,7 @@ import Footer from "../../shared/Footer/Footer";
 import Form from "../../shared/form/Form";
 import { useForm, Controller } from "react-hook-form";
 
+
 const formData = {
   email: {
     placeholder: "example@gmail.com",

@@ -35,10 +35,10 @@ const Form = ({
     },
   });
 
+
   useEffect(() => {
-    if (isValid) {
-      reset();
-    }
+    // reset();
+
     clearErrors();
   }, [isSubmitSuccessful]);
 
@@ -54,7 +54,7 @@ const Form = ({
       }}
     >
       <Box>
-        <form onSubmit={handleSubmit(submitForm)}>
+        <form onSubmit={handleSubmit((data,e)=>submitForm(data,e,reset))}>
           <Grid container spacing={3}>
             {Object.keys(defaultValue).map((item, index) => {
               const { placeholder, type } = defaultValue[item];
@@ -109,6 +109,7 @@ const Form = ({
             type="submit"
             sx={{ marginTop: "30px" }}
             className={loginAndSigninBtn}
+            // disabled={!isValid}
           >
             {btnTitle}
           </Button>
