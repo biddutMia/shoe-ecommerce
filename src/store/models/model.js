@@ -10,9 +10,9 @@ const cart = {
       state.data[payload] = {
         item: 1,
       };
-      return;
+    } else {
+      alert("this item already added in cart");
     }
-    alert("This item already added in cart");
   }),
 
   removeOneItem: action((state, payload) => {
@@ -21,13 +21,21 @@ const cart = {
 
   removeAllCartItem: action((state) => (state = {})),
 
-  incrementCartItem: action(
-    (state, payload) => (state.data[payload].item += 1)
-  ),
+  incrementCartItem: action((state, payload) => {
+    if (state.data[payload]) {
+      state.data[payload].item += 1;
+    } else {
+      state.data[payload] = {
+        item: 1,
+      };
+    }
+  }),
 
-  decrementCartItem: action(
-    (state, payload) => (state.data[payload].item -= 1)
-  ),
+  decrementCartItem: action((state, payload) => {
+    if (state.data[payload] && state.data[payload].item > 0) {
+      state.data[payload].item -= 1;
+    }
+  }),
 };
 
 const wishList = {

@@ -6,6 +6,7 @@ import Cart from "../pages/cart/Cart";
 import WishList from "../pages/wishList/WishLish";
 import Login from "../pages/login/Login";
 import SignIn from "../pages/signin/SignIn";
+import SingularProduct from "../pages/singularProduct/SingularProduct";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/wishList" element={<WishList />} />
         <Route path="/log-in" element={<Login />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/shop/:index" element={<SingularProduct />} />
       </Routes>
     </Box>
   );

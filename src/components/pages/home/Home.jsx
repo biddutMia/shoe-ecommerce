@@ -13,6 +13,8 @@ const Home = () => {
   const { shop } = useStoreState((state) => state);
   const shopProduct = shop.shopItems.slice(0, 6);
 
+  const data = useStoreState((state) => state);
+
   return (
     <Box>
       <TopHeader />
@@ -24,7 +26,7 @@ const Home = () => {
             sx={{
               width: "100%",
               aspectRatio: "2/0.9",
-              objectFit: 'cover'
+              objectFit: "cover",
             }}
             alt="The house from the offer."
             src="/img/bannerShoe.jpg"
@@ -46,7 +48,11 @@ const Home = () => {
             <Container maxWidth="md" sx={{ marginTop: "40px" }}>
               <Box sx={{ marginTop: "70px" }}>
                 {" "}
-                <ShowProduct title="Shop Product" products={shopProduct} />
+                <ShowProduct
+                  title="Shop Product"
+                  products={shopProduct}
+                  storeTitle={"shop"}
+                />
               </Box>
 
               <Box sx={{ margin: "100px 0px 20px 0px" }}>
@@ -54,6 +60,7 @@ const Home = () => {
                   title="Best Selling Products"
                   slideItems={true}
                   products={shopProduct}
+                  storeTitle={"shop"}
                 />
               </Box>
               <Box
@@ -66,6 +73,7 @@ const Home = () => {
                   slideItems={true}
                   products={shopProduct}
                   isCart={false}
+                  storeTitle={"shop"}
                 />
               </Box>
 

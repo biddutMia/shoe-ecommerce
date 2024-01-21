@@ -14,7 +14,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useRef } from "react";
 
-const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
+const ShowProduct = ({
+  title,
+  products,
+  slideItems,
+  isCart,
+  show,
+  storeTitle,
+}) => {
   const slide = useRef(null);
 
   useEffect(() => {
@@ -110,7 +117,7 @@ const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
           <Box sx={{ marginTop: "10px" }}>
             <Grid container>
               {products.length !== 0 &&
-                products.map((item, ind) => {
+                products.map((item, index) => {
                   const { id, description, imgURL, imgAlt, name, price, type } =
                     item;
                   return (
@@ -123,6 +130,8 @@ const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
                         price={price}
                         imgAlt={imgAlt}
                         isCart={isCart}
+                        index={index}
+                        storeTitle={storeTitle}
                       />
                     </Grid>
                   );
@@ -152,7 +161,7 @@ const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
           <Box sx={{ marginTop: "10px" }}>
             <Slider {...settings} ref={slide}>
               {products.length !== 0 &&
-                products.map((item) => {
+                products.map((item, index) => {
                   const { id, description, imgURL, imgAlt, name, price, type } =
                     item;
 
@@ -166,6 +175,8 @@ const ShowProduct = ({ title, products, slideItems, isCart, show }) => {
                         price={price}
                         imgAlt={imgAlt}
                         isCart={isCart}
+                        storeTitle={storeTitle}
+                        index={index}
                       />
                     </Box>
                   );

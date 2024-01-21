@@ -8,6 +8,7 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 import { cardImgAndTextContainer, cardImg } from "../../../style.module.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({
   imgUrl,
@@ -17,6 +18,8 @@ const ProductCard = ({
   price,
   id,
   isCart = true,
+  index,
+  storeTitle,
 }) => {
   const actions = useStoreActions((action) => action);
   const wishList = useStoreState((state) => state);
@@ -32,25 +35,30 @@ const ProductCard = ({
       }}
     >
       <Box className={cardImgAndTextContainer}>
-        <Box sx={{ width: "100%", overflow: "hidden", aspectRatio: "1/0.7" }}>
-          {" "}
-          <img
-            className={cardImg}
-            src={imgUrl}
-            alt={imgAlt}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-        </Box>
+        <Link
+          to={`/shop/${index}?store-title=${storeTitle}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <Box sx={{ width: "100%", overflow: "hidden", aspectRatio: "1/0.7" }}>
+            {" "}
+            <img
+              className={cardImg}
+              src={imgUrl}
+              alt={imgAlt}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </Box>
 
-        <Box sx={{ marginLeft: "5px" }}>
-          <Typography variant="h5"> {name}</Typography>
-          <Typography variant="body1"> TK. {price}</Typography>
-          <Typography>{description}</Typography>
-        </Box>
+          <Box sx={{ marginLeft: "5px" }}>
+            <Typography variant="h5"> {name}</Typography>
+            <Typography variant="body1"> TK. {price}</Typography>
+            <Typography>{description}</Typography>
+          </Box>
+        </Link>
       </Box>
       <Box>
         <Stack direction={"row"} spacing={0.4} sx={{ margin: "5px" }}>
