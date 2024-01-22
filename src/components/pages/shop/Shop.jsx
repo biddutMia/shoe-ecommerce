@@ -78,8 +78,6 @@ const Shop = () => {
     );
   }, [page, filter, sort]);
 
-  
-
   return (
     <Box>
       <TopHeader />
@@ -115,7 +113,7 @@ const Shop = () => {
         </Box>
 
         <Box sx={{ marginTop: "10px" }}>
-          <ShowProduct products={shopItems} show={true} />
+          <ShowProduct products={shopItems} show={true} storeTitle={"shop"} />
         </Box>
 
         <Box sx={{ marginBottom: "20px" }}>

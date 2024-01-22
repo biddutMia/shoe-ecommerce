@@ -6,6 +6,46 @@ import Footer from "../../shared/Footer/Footer";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { useParams, useSearchParams } from "react-router-dom";
 import IncreaseAndDecrease from "../../shared/increaseAndDecreaseBtn/IncreaseAndDecrease";
+import ShowProduct from "../../shared/showProduct/ShowProduct";
+
+const getRelativeProducts = (products, id, relativeProductsStore = []) => {
+  if (products.length < 7) {
+    return (relativeProductsStore = products.filter(!item.id == id));
+  } else {
+    let isStatus = true;
+
+    while (isStatus) {
+      const relativeProductsIndexValue = Math.floor(
+        Math.random() * products.length - 1
+      );
+
+      if (!relativeProductsStore.includes(relativeProductsIndexValue)) {
+        relativeProductsStore.push(relativeProductsIndexValue);
+      }
+
+      if (relativeProductsStore.length >= 5) {
+        relativeProductsStore = relativeProductsStore.reduce(
+          (acc, item, index) => {
+            if (products[item].id == id) {
+              relativeProductsStore.splice(index, 1);
+              return false;
+            }
+
+            acc.push(products[item]);
+
+            return acc;
+          },
+          []
+        );
+
+        if (relativeProductsStore.length >= 5) {
+          isStatus = false;
+          return relativeProductsStore;
+        }
+      }
+    }
+  }
+};
 
 const SingularProduct = () => {
   const { index } = useParams();
@@ -18,7 +58,7 @@ const SingularProduct = () => {
     (actions) => actions.cart
   );
 
-  // console.log("in", incrementCartItem, "de", decrementCartItem);
+  const relativeProducts = getRelativeProducts(store[queryParam].shopItems, id);
 
   return (
     <Box>
@@ -82,6 +122,15 @@ const SingularProduct = () => {
             </Box>
           </Grid>
         </Grid>
+
+        <Box sx={{ margin: "40px 0px" }}>
+          <ShowProduct
+            title={"Relative Products"}
+            slideItems={true}
+            products={relativeProducts}
+            storeTitle={"shop"}
+          />
+        </Box>
       </Container>
       <Footer />
     </Box>

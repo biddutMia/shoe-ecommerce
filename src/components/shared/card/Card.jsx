@@ -54,9 +54,8 @@ const ProductCard = ({
           </Box>
 
           <Box sx={{ marginLeft: "5px" }}>
-            <Typography variant="h5"> {name}</Typography>
-            <Typography variant="body1"> TK. {price}</Typography>
-            <Typography>{description}</Typography>
+            <Typography variant="h6"> {name}</Typography>
+            <Typography variant="body2"> TK. {price}</Typography>
           </Box>
         </Link>
       </Box>
